@@ -5,8 +5,7 @@ function howMuchWater(water, load, clothes){
   } else if (clothes < load) {
     return "Not enough clothes";
   } else {
-    return water * Math.pow(1.1, (clothes - load));
-  }
+    return Math.round(water * Math.pow(1.1, (clothes - load)) * 100)/100;
+  } 
 }
-
-// Как округлить число до сотых?
+// Как округлить число до сотых? Math.round(x * 100)/100;
