@@ -1,0 +1,13 @@
+function betterThanAverage(classPoints, yourPoints) {
+  var x = 0;
+  for (var i = 0; i < classPoints.length; i++) {
+    x += classPoints[i];
+  };
+  if (yourPoints > (x + yourPoints)/classPoints.length) {
+    return true;
+  } else return false;
+}
+
+
+-----------------------------
+Почему betterThanAverage([2, 3], 5);  - даёт false?
