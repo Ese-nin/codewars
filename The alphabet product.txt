@@ -1,0 +1,38 @@
+// 1,2,3,4,2,6,12,4
+// 2,3,4,5,6,12,20,10
+// 3,4,5,6,12,20,30,18
+// 4,5,6,7,20,30,42,28
+
+// A < B < C < D
+// list: A, B, C, D, A*B, B*C, C*D, D*A in random order
+
+function alphabet(ns) {
+    let arr = ns.sort((a, b) => a - b)
+    for (let i = 2; i < arr.length; i++) {
+        if (arr[i] === arr[0] * arr[1]) {
+            [arr[i], arr[4]] = [arr[4], arr[i]]
+        }
+        if (arr[2] > arr[3]) {
+            [arr[2], arr[3]] = [arr[3], arr[2]]
+        }
+    }
+    for (let i = 3; i < arr.length; i++) {
+        if (arr[i] === arr[1] * arr[2]) {
+            [arr[i], arr[5]] = [arr[5], arr[i]]
+        }
+    }
+    for (let i = 4; i < arr.length; i++) {
+        if (arr[i] === arr[2] * arr[3]) {
+            [arr[i], arr[6]] = [arr[6], arr[i]]
+        }
+    }
+    return arr[3]
+}
+
+
+
+====================== Description =================
+
+I have four positive integers, A, B, C and D, where A < B < C < D. 
+The input is a list of the integers A, B, C, D, AxB, BxC, CxD, DxA in some order. 
+Your task is to return the value of D.
